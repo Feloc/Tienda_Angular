@@ -1,0 +1,79 @@
+<input [(ngModel)]="searchText" type="text" placeholder="Que estas buscando?">
+
+<div class="container">
+
+<!--
+  <div *ngFor= "let name of names">
+
+    <mas [name]="name"></mas>
+  </div>
+-->
+
+  <div class="row">
+    <div *ngFor="let product of products | filter : searchText" class="col-3">
+        <div class="card">
+          <img class="card-img-top" src="{{product.photo}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Precio: {{product.price | currency}}</p>
+            <p class="card-text">Unidades: {{product.units}}</p>
+
+            <div class="row">
+              <button class="btn btn-primary col-4 btn-sm" [routerLink]="['../mas', product.name]">Ver mas</button>
+              <div class="input-group mb-3 col-8" >
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary btn-sm" type="button" (click)="clicked()">Añadir</button>
+                </div>
+                <select class="custom-select" ngModel="cantidad" id="inputGroupSelect03" aria-label="Example select with button addon">
+                  <option selected="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+
+
+
+                <!--<select name="shape_id" (change)="changeShape($event.target)">
+                  <option *ngFor="let shape of shapes" [value]="shape.id">
+                    {{shape.name}}
+                  </option>
+                </select>-->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+<!--*ngFor="let product of products"-->
+<!--
+
+<div *ngFor="let product of products" class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="{{product.photo}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.price}}</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+<a href="#" class="btn btn-primary">Añadir</a>
+
+<ul>
+  <li *ngFor= "let product of products">
+    <mas [producto]="product"></mas>
+  </li>
+  <li *ngFor= "let name of names">
+    <mas [name]="name"></mas>
+  </li>
+</ul>
+-->
